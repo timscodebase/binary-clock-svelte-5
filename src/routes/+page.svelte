@@ -75,6 +75,10 @@
 	}, 1000)
 </script>
 
+<header>
+	<h1>Svelte 5 Binary Clock</h1>
+</header>
+
 <section>
 	<div class="flex">
 		<div class="stack">
@@ -124,10 +128,18 @@
 		<div class="digit">{seconds[1]}</div>
 	</div>
 </section>
+<p>(Just refresh me. I am still buggy. 😉)</p>
 
 <style>
 	:root {
 		--size: 5rem;
+	}
+	header,
+	p {
+		text-align: center;
+	}
+	p {
+		font-size: 2rem;
 	}
 	.flex {
 		display: flex;
