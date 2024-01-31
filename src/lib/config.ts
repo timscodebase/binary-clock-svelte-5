@@ -1,0 +1,2 @@
+export const decsription = `A fun coding project to learn Svelte 5 and to create a binary clock. I a have chosen to use a JS map structure to store a lookup table for the binary values of each digit. This is then used to set the class of each digit to either 'active' or '' to display the time.`
+export const title = 'Svelte 5 Binary Clock'
