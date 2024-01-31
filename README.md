@@ -1,38 +1,29 @@
-# create-svelte
+# Svelte 5 Binary Clock
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A fun coding project to learn Svelte 5 and to create a binary clock. I a have chosen to use a JS map structure to store a lookup table for the binary values of each digit. This is then used to set the class of each digit to either 'active' or '' to display the time.
 
-## Creating a project
+## Get started
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Fork my repo and clone it to your local machine. Then install the dependencies...
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+  gh repo clone timscodebase/binary-clock-svelte-5
+  cd binary-clock-svelte-5
+  pnpm install
 ```
 
-## Building
-
-To create a production version of your app:
+### Run
 
 ```bash
-npm run build
+  pnpm run dev
 ```
 
-You can preview the production build with `npm run preview`.
+### Deploy
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+I have used [Vercel](https://vercel.com/) to deploy my app.
+
+```bash
+  pnpm add -g vercel
+  vercel login
+  vercel deploy
+```

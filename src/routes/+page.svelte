@@ -1,43 +1,36 @@
 <script lang="ts">
-	const Bmap = new Map([
-		[0, ['', '', '', '']],
-		[1, ['active', '', '', '']],
-		[2, ['', 'active', '', '']],
-		[3, ['active', 'active', '', '']],
-		[4, ['', '', 'active', '']],
-		[5, ['active', 'active', '', '']],
-		[6, ['', 'active', 'active', '']],
-		[7, ['active', 'active', 'active', '']],
-		[8, ['', '', '', 'active']],
-		[9, ['active', '', '', 'active']],
-		[10, ['', 'active', '', 'active']]
-	])
+	const bMap = {
+		'0': ['', '', '', ''],
+		'1': ['active', '', '', ''],
+		'2': ['', 'active', '', ''],
+		'3': ['active', 'active', '', ''],
+		'4': ['', '', 'active', ''],
+		'5': ['active', '', 'active', ''],
+		'6': ['', 'active', 'active', ''],
+		'7': ['active', 'active', 'active', ''],
+		'8': ['', '', '', 'active'],
+		'9': ['active', '', '', 'active']
+	}
 
-	let time = $state<string>('00:00:00')
+	let time = $state<string>('00:00:00 AM')
 	let hours = $state<string[]>(['0', '0'])
-	let minutes = $state<string[] | string>(['0', '0'])
-	let seconds = $state<string[] | string>(['0', '0'])
+	let minutes = $state<string[]>(['0', '0'])
+	let seconds = $state<string[]>(['0', '0'])
 
 	let bHours = $state<string[]>([])
-	let bHours1 = $state<string[] | string>([])
-	let bHours2 = $state<string[] | string>([])
+	let bHours1 = $state<string[]>([])
+	let bHours2 = $state<string[]>([])
 
 	let bMinutes = $state<string[]>([])
-	let bMinutes1 = $state<string[] | string>([])
-	let bMinutes2 = $state<string[] | string>([])
+	let bMinutes1 = $state<string[]>([])
+	let bMinutes2 = $state<string[]>([])
 
 	let bSeconds = $state<string[]>([])
-	let bSeconds1 = $state<string[] | string>([])
-	let bSeconds2 = $state<string[] | string>([])
+	let bSeconds1 = $state<string[]>([])
+	let bSeconds2 = $state<string[]>([])
 
-	function toBinary(arr: string[]): string[] {
-		console.log('arr: ', arr)
-		const results: string[] = []
-
-		for (let i = 0; i < arr.length; i++) {
-			results.push(Bmap.get(parseInt(arr[i])))
-		}
-		return results
+	function toBinary(digit: string): string[] {
+		return bMap[digit]
 	}
 
 	const interval = setInterval(() => {
@@ -51,27 +44,24 @@
 		if (hours.length === 1) {
 			hours.unshift('0')
 		}
+
 		minutes = m.split('')
 		const [s1, s2] = s.split(' ')
 		seconds = s1.split('')
 
+		console.log(hours)
+
 		bHours = toBinary(hours)
-		bHours1 = toBinary(Array.from(hours[0]))
-		bHours2 = toBinary(Array.from(hours[1]))
-		bHours1 = bHours1[0]
-		bHours2 = bHours2[0]
+		bHours1 = toBinary(hours[0])
+		bHours2 = toBinary(hours[1])
 
 		bMinutes = toBinary(minutes)
-		bMinutes1 = toBinary(Array.from(minutes[0]))
-		bMinutes2 = toBinary(Array.from(minutes[1]))
-		bMinutes1 = bMinutes1[0]
-		bMinutes2 = bMinutes2[0]
+		bMinutes1 = toBinary(minutes[0])
+		bMinutes2 = toBinary(minutes[1])
 
 		bSeconds = toBinary(seconds)
-		bSeconds1 = toBinary(Array.from(seconds[0]))
-		bSeconds2 = toBinary(Array.from(seconds[1]))
-		bSeconds1 = bSeconds1[0]
-		bSeconds2 = bSeconds2[0]
+		bSeconds1 = toBinary(seconds[0])
+		bSeconds2 = toBinary(seconds[1])
 	}, 1000)
 </script>
 
